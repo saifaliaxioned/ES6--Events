@@ -142,7 +142,7 @@ header .wrapper {
 
 .nav-items a::first-letter { text-transform: uppercase; }
 .nav-items a:hover { color: #00ccff; }
-.active-nav { color: #00ccff; }
+.nav-items .active-nav { color: #00ccff; }
 /*=================================
   Header styling ends here
 =================================*/  
