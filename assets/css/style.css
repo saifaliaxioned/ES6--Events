@@ -211,7 +211,6 @@ header .wrapper {
   font-size: 25px;
   text-transform: capitalize;
   font-style: italic;
-  display: none;
 }
 
 .event-items {
@@ -225,6 +224,7 @@ header .wrapper {
   padding: 10px;
   background: #0A1333;
 }
+
 .event-list h3 {
   padding: 15px 0;
   color: #fff;
@@ -270,6 +270,7 @@ header .wrapper {
 .event-details .start-event,.end-event { text-transform: uppercase; }
 
 .event-location,.event-name { text-transform: capitalize; }
+.hide-content { display: none; }
 /* events schedule page end */
 /*=================================
   main styling ends here
