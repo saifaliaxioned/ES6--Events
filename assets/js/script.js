@@ -12,9 +12,13 @@ const form = document.querySelector('.event-form'),
 
 let data;
 
+// function to store data in local storage
 const storeData = (eventDate, startTime, endTime, eLocation, eName) => {
-  eventData();
+  if (!localStorage.getItem('itemName')) {
+    localStorage.setItem('itemName',JSON.stringify([]));
+  }
   let getData = JSON.parse(localStorage.getItem('itemName'));
+
   const dataObj = {
     eventDate: eventDate,
     startTime: startTime,
@@ -51,7 +55,7 @@ if (form) {
     e.preventDefault();
     if (eventDate.value && startTime.value && endTime.value && eLocation.value && eName.value) {
       storeData(eventDate.value, startTime.value, endTime.value, eLocation.value, eName.value);
-      // location.href = 'events.html';
+      location.href = 'events.html';
       form.reset();
     } else {
       validateInput(eventDate);
@@ -63,17 +67,19 @@ if (form) {
   });
 }
 
+// to check local storage is empty or not
 const eventData = () => {
   data = localStorage.getItem('itemName');
-  if (data) {
+  if (data) {    
     eventMessage.classList.add('hide-content');
     sortData(JSON.parse(data));
   } else {
-    localStorage.setItem('itemName', JSON.stringify([]));
     eventMessage.classList.remove('hide-content');
+    localStorage.setItem('itemName', JSON.stringify([]));
   }
 }
 
+// sorting data and creating object
 const sortData = (data) => {
   let tempArr = [];
   let temp = {
@@ -93,6 +99,7 @@ const sortData = (data) => {
   showData(tempArr, temp);
 }
 
+// to show data in UI
 const showData = (arr1, data) => {
   arr1.forEach(el => {
     if (data.year[el] != undefined) {
@@ -102,10 +109,11 @@ const showData = (arr1, data) => {
       li.classList.add('event-list');
       data.year[el].map((objList)=>{
         let eMonth = new Date(objList.eventDate).toLocaleString('default', { month: 'long' }),
-          eDay = new Date(objList.eventDate).toLocaleString("en", { weekday: "long" });
+          eDay = new Date(objList.eventDate).toLocaleString("en", { weekday: "long" }),
+          [sH,sM] = objList.startTime.split(':');
+          [eH,eM] = objList.endTime.split(':');
         li.innerHTML = `<h3><span class="event-month">${eMonth}</span> <span class="event-year">${new Date(objList.eventDate).getFullYear()}</span></h3>
         `;
-        console.log(new Date().setTime(Number(objList.startTime.split(':')[0])).toLocaleString('en-US', { hour: 'numeric', minute: 'numeric', hour12: true }));
     
         ul.innerHTML += `<li class="data-list">
             <div class="date-data">
@@ -113,7 +121,7 @@ const showData = (arr1, data) => {
               <span class="schedule-month">${new Date(objList.eventDate).toDateString().split(' ')[1]}</span>
             </div>
             <div class="event-details">
-              <h4><span class="event-day">${eDay}</span> <span class="start-event">${'time'}</span>-<span class="end-event">${'time'}</span></h4>
+              <h4><span class="event-day">${eDay}</span> <span class="start-event">${sH >= 12 ? sH-12 : sH}:${sM}${sH >= 12 ? 'PM' : 'AM'}</span>-<span class="end-event">${eH >= 12 ? eH-12 : eH}:${eM}${eH >= 12 ? 'PM' : 'AM'}</span></h4>
               <p class="event-location">${objList.eLocation}</p>
               <h5 class="event-name">${objList.eName}</h5>
             </div>
