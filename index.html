@@ -1,6 +1,6 @@
 <!doctype html>
 <!-- If multi-language site, reconsider usage of html lang declaration here. -->
-<html lang="en"> 
+<html lang="en">
 
 <head>
   <meta charset="utf-8">
@@ -11,7 +11,7 @@
   <!--font-awesome link for icons-->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
   <!-- Default style-sheet is for 'media' type screen (color computer display).  -->
-  <link rel="stylesheet" media="screen" href="assets/css/style.css" >
+  <link rel="stylesheet" media="screen" href="assets/css/style.css">
 </head>
 
 <body>
@@ -19,17 +19,58 @@
   <div class="container">
     <!--header section start-->
     <header>
-      
+      <div class="wrapper">
+        <h1 class="logo"><a href="index.html" title="Events">events</a></h1>
+        <nav>
+          <ul class="nav-items">
+            <li><a href="index.html" title="Home">home</a></li>
+            <li><a href="events.html" title="Events Schedule">events schedule</a></li>
+          </ul>
+        </nav>
+      </div>
     </header>
     <!--header section start-->
     <!--main section start-->
     <main>
-
+      <section class="events-info">
+        <div class="wrapper">
+          <form action="#FIXME" method="post" class="event-form">
+            <div class="input-group">
+              <label>Event Date:</label>
+              <input type="date" name="date" class="event-date">
+              <span class="input-error">*Please select event date</span>
+            </div>
+            <div class="input-group">
+              <label>Start Time:</label>
+              <input type="time" name="time" class="start-time">
+              <span class="input-error">*Please select event start time</span>
+            </div>
+            <div class="input-group">
+              <label>End Time:</label>
+              <input type="time" name="time" class="end-time">
+              <span class="input-error">*Please select event end time</span>
+            </div>
+            <div class="input-group">
+              <label>Location:</label>
+              <input type="text" name="location" class="location">
+              <span class="input-error">*Please select event location</span>
+            </div>
+            <div class="input-group">
+              <label>Event Name:</label>
+              <input type="text" name="event_name" class="event-name">
+              <span class="input-error">*Please select event name</span>
+            </div>
+            <div class="input-control">
+              <input type="submit" value="Submit" class="submit-btn">
+            </div>
+          </form>
+        </div>
+      </section>
     </main>
     <!--main section end-->
 
     <!--footer section start-->
-    <footer>      
+    <footer>
 
     </footer>
     <!--footer section end-->
@@ -38,4 +79,5 @@
   <!--container end-->
   <script src="assets/js/script.js"></script>
 </body>
+
 </html>
