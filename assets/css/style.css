@@ -187,6 +187,90 @@ header .wrapper {
 }
 
 .show-error { visibility: visible; }
+
+/* events schedule page start */
+.events-section h2 {
+  padding-top: 30px;
+  padding-left: 10px;
+  color: #39B4D9;
+  font-size: 25px;
+  text-transform: uppercase;
+}
+
+.events-section .wrapper {
+  width: 70%;
+  position: relative;
+}
+
+.event-message {
+  position: absolute;
+  bottom: -150px;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  color: #a19b9b;
+  font-size: 25px;
+  text-transform: capitalize;
+  font-style: italic;
+  display: none;
+}
+
+.event-items {
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.event-list {
+  padding: 10px;
+  background: #0A1333;
+}
+.event-list h3 {
+  padding: 15px 0;
+  color: #fff;
+  font-size: 17px;
+  font-weight: bold;
+  text-transform: capitalize;
+}
+
+.event-data {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.data-list {
+  padding: 10px 10px 30px;
+  flex-basis: 49.3%;
+  display: flex;
+  gap: 10px;
+  background: #fff;
+}
+
+.date-data span { display: block; }
+.schedule-date { font-size: 22px; }
+
+.schedule-month { 
+  font-size: 13px;
+  text-transform: uppercase;
+}
+
+.event-details h4 {
+  font-size: 15px;
+  font-weight: bold;
+  text-transform: capitalize;
+}
+
+.event-details {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
+.event-details .start-event,.end-event { text-transform: uppercase; }
+
+.event-location,.event-name { text-transform: capitalize; }
+/* events schedule page end */
 /*=================================
   main styling ends here
 =================================*/
